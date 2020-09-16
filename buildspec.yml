@@ -81,9 +81,6 @@ phases:
                         cpu: 500m
                       requests:
                         cpu: 200m
-                    volumeMounts:
-                      - mountPath: "/mnt/aws"
-                        name: volume
                     readinessProbe:
                       httpGet:
                         path: /actuator/health
@@ -100,10 +97,6 @@ phases:
                       timeoutSeconds: 2
                       periodSeconds: 5
                       failureThreshold: 5
-                volumes:
-                  - name: volume
-                    persistentVolumeClaim:
-                      claimName: aws-efs  
           EOF
 
 cache:
